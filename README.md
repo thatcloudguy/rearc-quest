@@ -20,7 +20,8 @@ At the end of this it will give you the name to set the image to. Update the `im
  After initialization and the `image` variable update, `make deploy` will build the docker image and will push and redeploy it
 
  ## Destroy
- When you are ready to destroy this stack run `make destroy`. NOTE: there is a confirmation prompt for this command because the result is destructive.
+ When you are ready to destroy this stack run `make destroy`. 
+ >**Note** There is a confirmation prompt for this command because the result is destructive.
 
  ## Managing The Secret Word
  To update and manage the secret word please do not update in code because secrets should not be stored in plain text. Instead, please use the AWS Secrets Manager console to update the secret. Once you have updated the secret, in the console run `make tf-deploy`
