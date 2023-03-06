@@ -18,3 +18,7 @@ output "image_name" {
   description = "The value you should set your image to in main.tf after initial deploy."
   value       = module.aws_fargate.image_name
 }
+output "url" {
+  description = "The url to test success"
+  value       = module.aws_fargate.url
+}

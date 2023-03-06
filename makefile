@@ -3,6 +3,7 @@ deploy: all
 $(eval IMG_NAME=$(shell (terraform output | grep repository_name | sed 's/"//g' | awk '{print $$3}')))
 $(eval CLUSTER=$(shell (terraform output | grep cluster_name | sed 's/"//g' | awk '{print $$3}')))
 $(eval SERVICE=$(shell (terraform output | grep service_name | sed 's/"//g' | awk '{print $$3}')))
+$(eval URL=$(shell (terraform output | grep url | sed 's/"//g' | awk '{print $$3}')))
 $(eval AWS_REGION=$(shell (terraform output | grep region | sed 's/"//g' | awk '{print $$3}')))
 $(eval AWS_ACCOUNT_ID=$(shell aws sts get-caller-identity --query Account --output text))
 $(eval REV=$(shell git rev-parse HEAD | cut -c1-7))
@@ -34,3 +35,10 @@ tf-deploy:
 
 tf-destroy:
 	terraform destroy
+
+grade:
+	curl -I https://${URL}/
+	curl https://${URL}/docker
+	curl https://${URL}/secret_word
+	curl https://${URL}/loadbalanced
+	curl https://${URL}/tls

@@ -26,3 +26,6 @@ At the end of this it will give you the name to set the image to. Update the `im
  To update and manage the secret word please do not update in code because secrets should not be stored in plain text. Instead, please use the AWS Secrets Manager console to update the secret. Once you have updated the secret, in the console run `make tf-deploy`
  >**Warning**
 >_since we are using local state in this quest do not commit your state file because TF will expand the secret in plain text there_
+
+## Finishing the Quest
+To make grading this quest more codified you can also run `make grade` to automate the grading of this quest

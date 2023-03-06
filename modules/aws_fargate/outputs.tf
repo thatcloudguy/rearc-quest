@@ -14,3 +14,7 @@ output "image_name" {
     description = "Update main variable with image once ecr is deployed"
     value = "${aws_ecr_repository.quest-ecr.repository_url}/${aws_ecr_repository.quest-ecr.name}:latest"
 }
+output "url" {
+    description = "URL to visit to verify success"
+    value = aws_route53_record.domain.name
+}
